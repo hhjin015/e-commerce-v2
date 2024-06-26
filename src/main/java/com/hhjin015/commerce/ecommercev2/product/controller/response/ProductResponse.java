@@ -1,7 +1,7 @@
 package com.hhjin015.commerce.ecommercev2.product.controller.response;
 
 import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
-import com.hhjin015.commerce.ecommercev2.product.mapper.StatusMapper;
+import com.hhjin015.commerce.ecommercev2.product.mapper.StateMapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -27,7 +27,7 @@ public class ProductResponse {
                 domain.getDescription(),
                 domain.getDefaultPrice(),
                 nonNull(domain.getOptions()) ? domain.getOptions().stream().map(OptionResponse::toResponse).toList() : null,
-                StatusMapper.INSTANCE.toProductStatusString(domain.getStatus())
+                StateMapper.INSTANCE.toProductStateString(domain.getState())
         );
     }
 }

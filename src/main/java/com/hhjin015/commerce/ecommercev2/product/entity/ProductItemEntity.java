@@ -4,7 +4,7 @@ import com.hhjin015.commerce.ecommercev2.product.domain.optioncombination.Option
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItem;
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItemInstantiation;
 import com.hhjin015.commerce.ecommercev2.product.entity.converter.OptionCombinationListConverter;
-import com.hhjin015.commerce.ecommercev2.product.mapper.StatusMapper;
+import com.hhjin015.commerce.ecommercev2.product.mapper.StateMapper;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,7 +36,7 @@ public class ProductItemEntity {
     private List<OptionCombinationEntity> optionCombinations;
 
     @Enumerated(EnumType.STRING)
-    private ProductItemStatusType status;
+    private ProductItemStateEntity state;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private ProductEntity product;
@@ -52,7 +52,7 @@ public class ProductItemEntity {
                 stockQuantity,
                 product.toDomain(),
                 nonNull(optionCombinations) ? getOptionCombinations() : null,
-                StatusMapper.INSTANCE.toProductItemStatus(status)
+                StateMapper.INSTANCE.toProductItemState(state)
         );
     }
 

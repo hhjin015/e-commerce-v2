@@ -5,7 +5,7 @@ import com.hhjin015.commerce.ecommercev2.product.domain.option.Option;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.ProductInstantiation;
 import com.hhjin015.commerce.ecommercev2.product.entity.converter.OptionListConverter;
-import com.hhjin015.commerce.ecommercev2.product.mapper.StatusMapper;
+import com.hhjin015.commerce.ecommercev2.product.mapper.StateMapper;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,7 +34,7 @@ public class ProductEntity {
     private List<OptionEntity> options;
 
     @Enumerated(EnumType.STRING)
-    private ProductStatusType status;
+    private ProductStateEntity state;
 
     public Product toDomain() {
         ProductInstantiation instantiation = new ProductInstantiation();
@@ -44,7 +44,7 @@ public class ProductEntity {
                 description,
                 defaultPrice,
                 nonNull(options) ? getOptions() : null,
-                StatusMapper.INSTANCE.toProductStatus(status)
+                StateMapper.INSTANCE.toProductState(state)
         );
     }
 

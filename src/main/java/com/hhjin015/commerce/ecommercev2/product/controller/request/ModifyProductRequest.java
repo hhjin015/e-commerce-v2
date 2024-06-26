@@ -19,7 +19,7 @@ public class ModifyProductRequest {
     private String desc;
     private Integer defaultPrice;
     private Set<_Option> options;
-    private String status;
+    private String state;
 
     public ModifyProductCommand toCommand(Long id) {
         return new ModifyProductCommand(
@@ -29,7 +29,7 @@ public class ModifyProductRequest {
                 defaultPrice,
                 optionChanged,
                 optionChanged ? options.stream().map(_Option::toCommand).toList() : null,
-                status
+                state
         );
     }
 }

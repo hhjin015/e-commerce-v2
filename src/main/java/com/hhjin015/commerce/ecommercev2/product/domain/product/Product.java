@@ -1,7 +1,7 @@
 package com.hhjin015.commerce.ecommercev2.product.domain.product;
 
 import com.hhjin015.commerce.ecommercev2.product.domain.option.Option;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductState;
 import com.hhjin015.commerce.ecommercev2.product.event.Events;
 import com.hhjin015.commerce.ecommercev2.product.event.ProductPriceChangedEvent;
 import lombok.AccessLevel;
@@ -19,14 +19,14 @@ public class Product {
     private int defaultPrice;
     private List<Option> options;
     @Builder.Default
-    private ProductStatus status = ProductStatus.PENDING;
+    private ProductState state = ProductState.PENDING;
 
-    public void update(String name, String description, int defaultPrice, List<Option> options, ProductStatus status) {
+    public void update(String name, String description, int defaultPrice, List<Option> options, ProductState state) {
         this.name = name;
         this.description = description;
         updateDefaultPrice(defaultPrice);
         this.options = options;
-        this.status = status;
+        this.state = state;
     }
 
     private void updateDefaultPrice(int defaultPrice) {

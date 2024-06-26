@@ -4,7 +4,7 @@ import com.hhjin015.commerce.ecommercev2.product.domain.option.Option;
 import com.hhjin015.commerce.ecommercev2.product.domain.option.OptionFactory;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.ProductRepository;
-import com.hhjin015.commerce.ecommercev2.product.mapper.StatusMapper;
+import com.hhjin015.commerce.ecommercev2.product.mapper.StateMapper;
 import com.hhjin015.commerce.ecommercev2.product.service.command.ModifyProductCommand;
 import com.hhjin015.commerce.ecommercev2.product.service.command.OptionCommand;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +44,7 @@ public class ProductCommandService {
                 isNull(command.getDesc()) ? product.getDescription() : command.getDesc(),
                 isNull(command.getDefaultPrice()) ? product.getDefaultPrice() : command.getDefaultPrice(),
                 !command.getOptionChanged() ? product.getOptions() : generateOption(command.getOptions()),
-                isNull(command.getStatus()) ? product.getStatus() : StatusMapper.INSTANCE.toProductStatus(command.getStatus())
+                isNull(command.getState()) ? product.getState() : StateMapper.INSTANCE.toProductState(command.getState())
         );
     }
 

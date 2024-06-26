@@ -3,7 +3,7 @@ package com.hhjin015.commerce.ecommercev2.product.domain.productitem;
 import com.hhjin015.commerce.ecommercev2.exception.OutOfStockException;
 import com.hhjin015.commerce.ecommercev2.product.domain.optioncombination.OptionCombination;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductItemStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductItemState;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public class ProductItem {
     private final Product product;
     private final List<OptionCombination> optionCombinations;
     @Builder.Default
-    private ProductItemStatus status = ProductItemStatus.ON_SALE;
+    private ProductItemState state = ProductItemState.ON_SALE;
 
     public void calcSalesPrice() {
         salesPrice = product.getDefaultPrice() + additionalPrice;
@@ -46,8 +46,8 @@ public class ProductItem {
     }
 
     private void changeStatus() {
-        if (stockQuantity == 0) status = ProductItemStatus.SOLD_OUT;
-        else status = ProductItemStatus.ON_SALE;
+        if (stockQuantity == 0) state = ProductItemState.SOLD_OUT;
+        else state = ProductItemState.ON_SALE;
     }
 
     private void checkQuantity(int amount) {

@@ -5,7 +5,7 @@ import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.ProductRepository;
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItem;
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItemRepository;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductItemStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductItemState;
 import com.hhjin015.commerce.ecommercev2.product.service.command.ModifyProductItemCommand;
 import com.hhjin015.commerce.ecommercev2.product.support.AbstractDomainTest;
 import org.junit.jupiter.api.BeforeEach;
@@ -95,7 +95,7 @@ class ProductItemCommandServiceTest extends AbstractDomainTest {
         ModifyProductItemCommand command = getModifyProductItemCommand(null, null, 0);
 
         ProductItem actual = sut.modifyProductItems(List.of(command)).get(0);
-        assertThat(actual.getStatus()).isEqualTo(ProductItemStatus.SOLD_OUT);
+        assertThat(actual.getState()).isEqualTo(ProductItemState.SOLD_OUT);
     }
 
     @Test

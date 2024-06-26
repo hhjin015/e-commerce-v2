@@ -2,7 +2,7 @@ package com.hhjin015.commerce.ecommercev2.product.domain.productitem;
 
 import com.hhjin015.commerce.ecommercev2.product.domain.optioncombination.OptionCombination;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductItemStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductItemState;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class ProductItemInstantiation {
             int stockQuantity,
             Product product,
             List<OptionCombination> optionCombinations,
-            ProductItemStatus status
+            ProductItemState state
     ) {
         return ProductItem.builder()
                 .id(id)
@@ -28,7 +28,7 @@ public class ProductItemInstantiation {
                 .stockQuantity(stockQuantity)
                 .product(product)
                 .optionCombinations(optionCombinations)
-                .status(status)
+                .state(state)
                 .build();
     }
 }

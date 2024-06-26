@@ -8,8 +8,8 @@ import com.hhjin015.commerce.ecommercev2.product.domain.product.Product;
 import com.hhjin015.commerce.ecommercev2.product.domain.product.ProductInstantiation;
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItem;
 import com.hhjin015.commerce.ecommercev2.product.domain.productitem.ProductItemInstantiation;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductItemStatus;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductItemState;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductState;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public abstract class ProductFixture {
                 desc,
                 defaultPrice,
                 optionUsable ? List.of(getOption("size", List.of("S", "M", "L"))) : null,
-                ProductStatus.PENDING
+                ProductState.PENDING
         );
     }
 
@@ -50,7 +50,7 @@ public abstract class ProductFixture {
                 quantity,
                 product,
                 optionUsable ? List.of(getOptionCombination()) : null,
-                ProductItemStatus.ON_SALE
+                ProductItemState.ON_SALE
         );
     }
 }

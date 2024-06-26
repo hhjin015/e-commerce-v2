@@ -1,7 +1,7 @@
 package com.hhjin015.commerce.ecommercev2.product.domain.product;
 
 import com.hhjin015.commerce.ecommercev2.product.domain.option.Option;
-import com.hhjin015.commerce.ecommercev2.product.domain.status.ProductStatus;
+import com.hhjin015.commerce.ecommercev2.product.domain.state.ProductState;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class ProductInstantiation {
             String description,
             int defaultPrice,
             List<Option> options,
-            ProductStatus status
+            ProductState state
     ) {
         return Product.builder()
                 .id(id)
@@ -22,7 +22,7 @@ public class ProductInstantiation {
                 .description(description)
                 .defaultPrice(defaultPrice)
                 .options(options)
-                .status(status)
+                .state(state)
                 .build();
     }
 }

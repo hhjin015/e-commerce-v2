@@ -15,5 +15,5 @@ public class ModifyProductCommand {
     private Integer defaultPrice;
     private Boolean optionChanged;
     private List<OptionCommand> options;
-    private String status;
+    private String state;
 }

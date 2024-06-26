@@ -30,7 +30,7 @@ public class DbConnectionTest {
                 .description("desc")
                 .defaultPrice(0)
                 .options(List.of(new OptionEntity("size", List.of("s", "m", "l"))))
-                .status(ProductStatusType.PENDING)
+                .state(ProductStateEntity.PENDING)
                 .build();
 
         productRepository.save(productEntity.toDomain());
@@ -41,7 +41,7 @@ public class DbConnectionTest {
                 .additionalPrice(1000)
                 .stockQuantity(10)
                 .optionCombinations(List.of(new OptionCombinationEntity("size", "s")))
-                .status(ProductItemStatusType.ON_SALE)
+                .state(ProductItemStateEntity.ON_SALE)
                 .product(productEntity)
                 .build();
 
